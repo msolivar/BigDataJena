@@ -10,7 +10,7 @@ public class ConsultarPeliculas {
 
     public static final String NS = "http://www.cinecolombia.com/peliculas#";
 
-    public static void main(String[] args) {
+    public static void consultarPeliculas() {
         try (FileInputStream in = new FileInputStream("peliculas.rdf")) {
             Model modelo = ModelFactory.createDefaultModel();
             modelo.read(in, null);
@@ -26,7 +26,7 @@ public class ConsultarPeliculas {
                 PREFIX cine: <%s>
                 SELECT ?titulo WHERE {
                   ?p cine:titulo ?titulo ;
-                     cine:genero "Acción" .
+                     cine:genero "accion" .
                 }
                 """);
 
@@ -34,7 +34,7 @@ public class ConsultarPeliculas {
                 PREFIX cine: <%s>
                 SELECT ?titulo WHERE {
                   ?p cine:titulo ?titulo ;
-                     cine:idioma "Español" .
+                     cine:idioma "español" .
                 }
                 """);
 
@@ -57,7 +57,7 @@ public class ConsultarPeliculas {
                 PREFIX cine: <%s>
                 SELECT ?titulo WHERE {
                   ?p cine:titulo ?titulo ;
-                     cine:idioma "Inglés" .
+                     cine:idioma "ingles" .
                 }
                 """);
 
@@ -83,7 +83,7 @@ public class ConsultarPeliculas {
                 SELECT ?titulo WHERE {
                   ?p cine:titulo ?titulo ;
                      cine:genero ?genero .
-                  FILTER(?genero != "Comedia")
+                  FILTER(?genero != "comedia")
                 }
                 """);
 
